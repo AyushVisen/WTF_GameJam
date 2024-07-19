@@ -1,0 +1,9 @@
+using UnityEngine;
+
+namespace Quark.
+{
+	public class #SCRIPTNAME# : MonoBehaviour
+	{
+
+	}
+}
