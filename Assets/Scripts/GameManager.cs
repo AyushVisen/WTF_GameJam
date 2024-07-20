@@ -10,6 +10,9 @@ namespace Ayush
 {
 	public class GameManager : Singleton<GameManager>
 	{
+		[field: SerializeField]
+		private string SceneToLoad { get; set; }
+
 		private Dictionary<Type, IGlobalService> GlobalServices { get; set; } = new();
 		private Dictionary<Type, ILocalService> LocalServices { get; set; } = new();
 
@@ -27,7 +30,7 @@ namespace Ayush
 				yield return new WaitUntil( () => service.IsReady );
 			}
 
-			SceneManager.LoadScene( Constants.PrototypeLevel );
+			SceneManager.LoadScene( SceneToLoad );
 		}
 
 		public bool RegisterService<T>( T service, bool replaceExisting = false ) where T : class, IService
