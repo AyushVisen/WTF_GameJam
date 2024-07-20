@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class BehaviourTreeProcessor : MonoBehaviour
 {
-	[SerializeField] private BehaviourTree tree;
+	[SerializeField] protected BehaviourTree Tree;
 
-	void Start()
+	protected virtual void Start()
 	{
-		tree = tree.Clone();
+		Tree = Tree.Clone();
 	}
-	void Update()
+
+	protected virtual void Update()
 	{
-		tree.Update();
+		Tree.Update();
 	}
 }
