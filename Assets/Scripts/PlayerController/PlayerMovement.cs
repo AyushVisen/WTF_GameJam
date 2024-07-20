@@ -30,6 +30,9 @@ namespace WTF_GameJam.Player
 		public Image DashCoolDownTimerUI { get; private set; }
 
 		[field: SerializeField]
+		public GameObject DashCoolDownTextUI { get; private set; }
+
+		[field: SerializeField]
 		public float DashCooldownTime { get; private set; }
 
 		public Vector3 LookDirection { get; private set; }
@@ -83,12 +86,7 @@ namespace WTF_GameJam.Player
 				{
 					if(_dashTimeRemaining <= 0f && _dashCooldownTime <= 0f)
 					{
-						_dashTimeRemaining = DashTime; 
-					
-						if (DashGuideUI != null)
-						{
-							DashGuideUI.SetActive( false );
-						}
+						_dashTimeRemaining = DashTime;
 					}
 				}
 				else
@@ -118,14 +116,16 @@ namespace WTF_GameJam.Player
 				{
 					DashCoolDownTimerUI.fillAmount = _dashCooldownTime / DashCooldownTime;
 				}
+			}
 
-				if(_dashCooldownTime <= 0)
-				{
-					if(DashGuideUI != null)
-					{
-						DashGuideUI.SetActive( true );
-					}
-				}
+			if (DashGuideUI != null)
+			{
+				DashGuideUI.SetActive( !IsAttacking && !IsDashing && _dashCooldownTime <= 0);
+			}
+
+			if(DashCoolDownTextUI != null)
+			{
+				DashCoolDownTextUI.SetActive( _dashCooldownTime > 0 );
 			}
 
 			CharacterController.MaxStableMoveSpeed = moveSpeed;
