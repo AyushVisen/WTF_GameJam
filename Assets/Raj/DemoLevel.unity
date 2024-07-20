@@ -5731,6 +5731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 24846497062311725, guid: 8e9e8208beb9e3a43a901594dad34de2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7066427632388127661, guid: 8e9e8208beb9e3a43a901594dad34de2, type: 3}
       propertyPath: <SceneToLoad>k__BackingField
       value: DemoLevel
