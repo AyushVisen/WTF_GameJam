@@ -27,17 +27,13 @@ namespace WTF_GameJam.Player
 				Animator.SetFloat( VelocityZHash, blendVelocity.z );
 			}
 
-			if (PlayerMovement.AttackInput)
+			if (PlayerMovement.AttackInput && PlayerMovement.IsAttacking == false)
 			{
+				PlayerMovement.SetIsAttacking( true );
 				Animator.SetTrigger( AttackHash );
 			}
 
 			Animator.SetBool( DashHash, PlayerMovement.IsDashing );
-		}
-
-		public void AttackStart()
-		{
-			PlayerMovement.SetIsAttacking(true);
 		}
 
 		public void AttackEnd()
