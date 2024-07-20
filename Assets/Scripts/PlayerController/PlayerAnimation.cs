@@ -12,7 +12,8 @@ namespace WTF_GameJam.Player
 
 		private int VelocityXHash = Animator.StringToHash( "VelocityX" );
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
-		private int AttackHash = Animator.StringToHash( "Attack" );
+		private int SwingAttackHash = Animator.StringToHash( "SwingAttack" );
+		private int AOEAttackHash = Animator.StringToHash( "AOEAttack" );
 		private int DashHash = Animator.StringToHash( "Dash" );
 
 		// Update is called once per frame
@@ -27,10 +28,15 @@ namespace WTF_GameJam.Player
 				Animator.SetFloat( VelocityZHash, blendVelocity.z );
 			}
 
-			if (PlayerMovement.AttackInput && PlayerMovement.IsAttacking == false)
-			{
+			if (PlayerMovement.SwingAttackInput)
+			{ 
+				Animator.SetTrigger( SwingAttackHash );
 				PlayerMovement.SetIsAttacking( true );
-				Animator.SetTrigger( AttackHash );
+			}
+			if (PlayerMovement.AOEAttackInput)
+			{
+				Animator.SetTrigger( AOEAttackHash );
+				PlayerMovement.SetIsAttacking( true );
 			}
 
 			Animator.SetBool( DashHash, PlayerMovement.IsDashing );

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7087452652713006481}
   - component: {fileID: 3209970892523820995}
-  - component: {fileID: 4276353966894093537}
+  - component: {fileID: 4419028085146463938}
+  - component: {fileID: 106908349664180719}
+  - component: {fileID: 8963894321797124116}
   m_Layer: 0
   m_Name: Pf_Enemy
   m_TagString: Untagged
@@ -56,7 +58,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4276353966894093537
+--- !u!114 &4419028085146463938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,13 +67,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993130538914634771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 645e79d47d2e38043a8bcaca306fc3b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df0194dec6aa4f4f904305c90547f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 5117339006acc0a4aa3052e439c52afa, type: 2}
   <NavMeshAgent>k__BackingField: {fileID: 3209970892523820995}
   <Animator>k__BackingField: {fileID: 1780499789024841338}
   <TargetPreferenceOrder>k__BackingField: 0100000000000000
+--- !u!114 &106908349664180719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993130538914634771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f245cae1a600464391b6672b652b60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _extennedBehaviorTreeProcessor: {fileID: 4419028085146463938}
+  <RequiredAttackToKillMe>k__BackingField: 5
+--- !u!136 &8963894321797124116
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993130538914634771}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &5322989459904099307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c252500195e6e4994a7c59ca210579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _extentedBehaviorTreeProcessor: {fileID: 4276353966894093537}
+  _extentedBehaviorTreeProcessor: {fileID: 4419028085146463938}
 --- !u!4 &5644619792129594368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b9ad5402bdb4084590673a1b55083e7, type: 3}

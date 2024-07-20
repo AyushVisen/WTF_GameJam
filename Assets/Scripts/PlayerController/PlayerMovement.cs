@@ -35,12 +35,17 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public float DashCooldownTime { get; private set; }
 
+		[field: SerializeField]
+		public float SwordSwingDamageRange { get; private set; }
+
 		public Vector3 LookDirection { get; private set; }
 		public Vector3 MoveInput { get; private set; }
-		public bool AttackInput { get; private set; }
+		public bool SwingAttackInput { get; private set; }
+		public bool AOEAttackInput { get; private set; }
 		public Vector3 Velocity => CharacterController.Motor.BaseVelocity;
 		public bool IsDashing => _dashTimeRemaining > 0f;
 		public bool IsAttacking { get; private set; }
+		public TypeOfAttack CurrentAttackType { get; private set; }
 
 		private PlayerInputSystem _playerInputSystem;
 		private float _dashTimeRemaining;
@@ -69,7 +74,20 @@ namespace WTF_GameJam.Player
 			var crouchInput = _playerInputSystem.Player.Crouch.IsPressed();
 			var mousePosition = _playerInputSystem.Player.MousePosition.ReadValue<Vector2>();
 			var dashInput = _playerInputSystem.Player.Dash.IsPressed();
-			AttackInput = _playerInputSystem.Player.Attack.IsPressed() && !IsDashing;
+			SwingAttackInput = _playerInputSystem.Player.SwingAttack.IsPressed() && !IsDashing && !IsAttacking;
+			AOEAttackInput = _playerInputSystem.Player.AOEAttack.IsPressed() && !IsDashing && !IsAttacking;
+
+			if (CurrentAttackType == TypeOfAttack.None)
+			{
+				if(SwingAttackInput)
+				{
+					CurrentAttackType = TypeOfAttack.SwordSwing;
+				}
+				if(AOEAttackInput)
+				{
+					CurrentAttackType = TypeOfAttack.AOE;
+				}
+			}
 
 			var lookDirection = CharacterController.Motor.BaseVelocity.normalized;
 			
@@ -145,6 +163,17 @@ namespace WTF_GameJam.Player
 		public void SetIsAttacking(bool isAttacking)
 		{
 			IsAttacking = isAttacking;
+			if(IsAttacking == false)
+			{
+				CurrentAttackType = TypeOfAttack.None;
+			}
 		}
+	}
+
+	public enum TypeOfAttack
+	{
+		None,
+		SwordSwing,
+		AOE
 	}
 }

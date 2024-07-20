@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace WTF_GameJam.AI
 {
-	public class ExtentedBehaviorTreeProcessor : BehaviourTreeProcessor
+	public class ExtendedBehaviorTreeProcessor : BehaviourTreeProcessor
 	{
 		[field: SerializeField]
 		public NavMeshAgent NavMeshAgent { get; private set; }
@@ -15,6 +15,8 @@ namespace WTF_GameJam.AI
 		[field: SerializeField]
 		public List<TargetType> TargetPreferenceOrder { get; private set; }
 
+		public bool IsDead { get; private set; }
+		public bool IsHit { get; private set; }
 		private BotSetDestinationNode _botSetDestinationNode;
 		private BotAttackNode _botAttackNode;
 
@@ -57,10 +59,12 @@ namespace WTF_GameJam.AI
 
 		protected override void Update()
 		{
-			if(_botAttackNode.IsAttacking == false)
+			if(IsDead || IsHit)
 			{
-				base.Update();
+				return;
 			}
+
+			base.Update();
 
 			if (_botAttackNode.IsAttacking == false && !Mathf.Approximately(NavMeshAgent.velocity.sqrMagnitude, 0f))
 			{
@@ -72,10 +76,27 @@ namespace WTF_GameJam.AI
 			}
 		}
 
+		public void SetIsDead(bool value)
+		{
+			IsDead = value;
+		}
+
 		public void AttackEnd()
 		{
 			_botAttackNode.IsAttacking = false;
-			Debug.Log( "AttackEnd" );
+		}
+
+		public void OnDeath()
+		{
+			_botAttackNode.IsDead = true;
+			Animator.enabled = false;
+			Destroy( gameObject );
+		}
+
+		public void SetIsHit(bool value)
+		{
+			IsHit = value;
+			_botAttackNode.UnderAttack = IsHit;
 		}
 	}
 

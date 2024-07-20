@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 66a4ec1239b00754e99f195d6a0d74f1
   position: {x: 477.84003, y: 218.81598}
-  waitTime: 1
+  waitTime: 0
 --- !u!114 &-7512222842702054179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: f1ee395d2f5349f47a00152107d244b5
   position: {x: 464.43195, y: -0.7999878}
-  _minDistanceForRangeCheck: 1
+  _minDistanceForRangeCheck: 1.2
 --- !u!114 &-1693665438740076859
 MonoBehaviour:
   m_ObjectHideFlags: 0

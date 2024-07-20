@@ -5,6 +5,8 @@ public class BotAttackNode : LeafNode
 {
 	public Animator BotAnimator { get; set; }
 	public bool IsAttacking { get; set; }
+	public bool IsDead { get; set; }
+	public bool UnderAttack { get; set; }
 
 	private int AttackHash = Animator.StringToHash( "Attack" );
 	private float _attackDuration;
@@ -23,6 +25,12 @@ public class BotAttackNode : LeafNode
 
 	protected override NodeStatus OnUpdate()
 	{
+		if(IsDead || UnderAttack)
+		{
+			_attackRemaingTime = 0;
+			return NodeStatus.Failed;
+		}
+
 		if(_attackRemaingTime > 0)
 		{
 			_attackRemaingTime -= Time.deltaTime;
