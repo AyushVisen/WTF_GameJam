@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Quark.
+namespace WTF_GameJam.
 {
 	[CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "Scriptable Objects/#SCRIPTNAME#")]
 	public class #SCRIPTNAME# : ScriptableObject

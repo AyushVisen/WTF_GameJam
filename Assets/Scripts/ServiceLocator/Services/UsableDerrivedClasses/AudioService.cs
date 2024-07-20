@@ -17,6 +17,9 @@ namespace Ayush
 		[SerializeField]
 		private AudioSource _audioSourceSFX;
 
+		[SerializeField]
+		private AudioClip _buttonSound;
+
 		private PlayerData _playerData;
 
 		#region Overrides of GlobalService
@@ -111,6 +114,13 @@ namespace Ayush
 			_audioSourceSFX.PlayOneShot( audioClip );
 		}
 
+		public void PlayButtonSound()
+		{
+			if (_buttonSound == null)
+				return;
+
+			PlaySfx( _buttonSound );
+		}
 
 		#endregion
 	}
