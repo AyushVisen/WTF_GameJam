@@ -12,15 +12,37 @@ namespace WTF_GameJam.Player
 
 		private int VelocityXHash = Animator.StringToHash( "VelocityX" );
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
+		private int AttackHash = Animator.StringToHash( "Attack" );
+		private int DashHash = Animator.StringToHash( "Dash" );
 
 		// Update is called once per frame
 		void Update()
 		{
-			var blendVelocity = PlayerMovement.Velocity;
-			var angle = Vector3.SignedAngle( PlayerMovement.LookDirection, Vector3.forward, Vector3.up );
-			blendVelocity = Quaternion.AngleAxis( angle, Vector3.up ) * blendVelocity;
-			Animator.SetFloat( VelocityXHash, blendVelocity.x );
-			Animator.SetFloat( VelocityZHash, blendVelocity.z );
+			if (PlayerMovement.IsDashing == false && PlayerMovement.IsAttacking == false)
+			{
+				var blendVelocity = PlayerMovement.Velocity;
+				var angle = Vector3.SignedAngle( PlayerMovement.LookDirection, Vector3.forward, Vector3.up );
+				blendVelocity = Quaternion.AngleAxis( angle, Vector3.up ) * blendVelocity;
+				Animator.SetFloat( VelocityXHash, blendVelocity.x );
+				Animator.SetFloat( VelocityZHash, blendVelocity.z );
+			}
+
+			if (PlayerMovement.AttackInput)
+			{
+				Animator.SetTrigger( AttackHash );
+			}
+
+			Animator.SetBool( DashHash, PlayerMovement.IsDashing );
+		}
+
+		public void AttackStart()
+		{
+			PlayerMovement.SetIsAttacking(true);
+		}
+
+		public void AttackEnd()
+		{
+			PlayerMovement.SetIsAttacking( false );
 		}
 	}
 }

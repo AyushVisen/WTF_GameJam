@@ -53,7 +53,10 @@ namespace WTF_GameJam.Health
 			}
 
 			CurrentHealth = Mathf.Clamp( CurrentHealth + amount, 0, MaxHealth );
-			HealthFillImage.fillAmount = CurrentHealth / MaxHealth;
+			if (HealthFillImage != null)
+			{
+				HealthFillImage.fillAmount = CurrentHealth / MaxHealth;
+			}
 		}
 
 		public void RegisterUpdateCallback()

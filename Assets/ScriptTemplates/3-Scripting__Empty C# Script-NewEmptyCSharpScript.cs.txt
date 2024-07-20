@@ -1,4 +1,4 @@
-namespace Quark.
+namespace WTF_GameJam.
 {
 	public class #SCRIPTNAME#
 	{

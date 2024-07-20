@@ -1,13 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace WTF_GameJam.Player
 {
-	public enum LookInputMode
-	{
-		MouseMove,
-		MouseDownAndMove,
-	}
-
 	public class PlayerMovement : MonoBehaviour
 	{
 		[field: SerializeField]
@@ -23,16 +18,30 @@ namespace WTF_GameJam.Player
 		public float NormalSpeed { get; private set; }
 
 		[field: SerializeField]
-		public float SprintSpeed { get; private set; }
+		public float DashSpeed { get; private set; }
 
 		[field: SerializeField]
-		public LookInputMode LookInputMode { get; private set; }
+		public float DashTime { get; private set; }
+
+		[field: SerializeField]
+		public GameObject DashGuideUI { get; private set; }
+
+		[field: SerializeField]
+		public Image DashCoolDownTimerUI { get; private set; }
+
+		[field: SerializeField]
+		public float DashCooldownTime { get; private set; }
 
 		public Vector3 LookDirection { get; private set; }
 		public Vector3 MoveInput { get; private set; }
+		public bool AttackInput { get; private set; }
 		public Vector3 Velocity => CharacterController.Motor.BaseVelocity;
+		public bool IsDashing => _dashTimeRemaining > 0f;
+		public bool IsAttacking { get; private set; }
 
 		private PlayerInputSystem _playerInputSystem;
+		private float _dashTimeRemaining;
+		private float _dashCooldownTime;
 
 		private void Awake()
 		{
@@ -54,43 +63,78 @@ namespace WTF_GameJam.Player
 		{
 			var characterInputs = new PlayerCharacterInputs();
 			MoveInput = _playerInputSystem.Player.Move.ReadValue<Vector2>();
-			var jumpInput = _playerInputSystem.Player.Jump.IsPressed();
 			var crouchInput = _playerInputSystem.Player.Crouch.IsPressed();
 			var mousePosition = _playerInputSystem.Player.MousePosition.ReadValue<Vector2>();
-			var sprintInput = _playerInputSystem.Player.Sprint.IsPressed();
-			var attackInput = _playerInputSystem.Player.Attack.IsPressed();
+			var dashInput = _playerInputSystem.Player.Dash.IsPressed();
+			AttackInput = _playerInputSystem.Player.Attack.IsPressed() && !IsDashing;
 
-			var lookDirection = Vector3.zero;
-
-			CharacterController.MaxStableMoveSpeed = SprintSpeed;
-
-			if (LookInputMode == LookInputMode.MouseMove)
-			{
-				lookDirection = GetLookDirection( mousePosition );
-			}
-			else
-			{
-				if (attackInput)
-				{
-					lookDirection = GetLookDirection( mousePosition );
-				}
-				else
-				{
-					lookDirection = CharacterController.Motor.BaseVelocity.normalized;
-				}
-			}
-
+			var lookDirection = CharacterController.Motor.BaseVelocity.normalized;
+			
 			if (lookDirection.sqrMagnitude > 0)
 			{
 				PlayerAvatarRoot.transform.forward = new Vector3( lookDirection.x, 0, lookDirection.z );
 			}
+
+			float moveSpeed = 0;
+
+			if(IsAttacking == false)
+			{
+				if (dashInput)
+				{
+					if(_dashTimeRemaining <= 0f && _dashCooldownTime <= 0f)
+					{
+						_dashTimeRemaining = DashTime; 
+					
+						if (DashGuideUI != null)
+						{
+							DashGuideUI.SetActive( false );
+						}
+					}
+				}
+				else
+				{
+					moveSpeed = NormalSpeed;
+				}
+
+				if (_dashTimeRemaining > 0f)
+				{
+					_dashTimeRemaining -= Time.deltaTime;
+
+					if(_dashTimeRemaining <= 0f)
+					{
+						_dashCooldownTime = DashCooldownTime;
+					}
+
+					MoveInput = new Vector2( PlayerAvatarRoot.transform.forward.x, PlayerAvatarRoot.transform.forward.z );
+					moveSpeed = DashSpeed;
+				}
+			}
+
+			if(_dashCooldownTime > 0)
+			{
+				_dashCooldownTime -= Time.deltaTime;
+
+				if(DashCoolDownTimerUI != null)
+				{
+					DashCoolDownTimerUI.fillAmount = _dashCooldownTime / DashCooldownTime;
+				}
+
+				if(_dashCooldownTime <= 0)
+				{
+					if(DashGuideUI != null)
+					{
+						DashGuideUI.SetActive( true );
+					}
+				}
+			}
+
+			CharacterController.MaxStableMoveSpeed = moveSpeed;
 
 			LookDirection = lookDirection;
 
 			// Build the CharacterInputs struct
 			characterInputs.MoveAxisForward = MoveInput.y;
 			characterInputs.MoveAxisRight = MoveInput.x;
-			characterInputs.JumpDown = jumpInput;
 			characterInputs.CrouchDown = crouchInput;
 			characterInputs.CrouchUp = !crouchInput;
 
@@ -98,19 +142,9 @@ namespace WTF_GameJam.Player
 			CharacterController.SetInputs( ref characterInputs );
 		}
 
-		private Vector3 GetLookDirection( Vector2 mousePosition )
+		public void SetIsAttacking(bool isAttacking)
 		{
-			var lookDirection = Vector3.zero;
-			var mouseRay = Camera.main.ScreenPointToRay( mousePosition );
-			var didMouseHit = Physics.Raycast( mouseRay, out var hit, Mathf.Infinity, MouseHitLayers );
-
-			if (didMouseHit)
-			{
-				lookDirection = hit.point - PlayerAvatarRoot.position;
-				lookDirection.y = 0;
-			}
-
-			return lookDirection.normalized;
+			IsAttacking = isAttacking;
 		}
 	}
 }
