@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7066427632388127661, guid: 8e9e8208beb9e3a43a901594dad34de2, type: 3}
+      propertyPath: <SceneToLoad>k__BackingField
+      value: PrototypeLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 8055933049405489653, guid: 8e9e8208beb9e3a43a901594dad34de2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01153326
@@ -1280,7 +1284,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1306,8 +1310,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706317587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5449136, y: 0, z: 0, w: 0.8384922}
-  m_LocalPosition: {x: 0, y: 6.009, z: -2}
+  m_LocalRotation: {x: 0.3765161, y: -0.000000013035447, z: 0.00000000529793, w: 0.9264101}
+  m_LocalPosition: {x: 0, y: 10.509, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1397,6 +1401,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.429999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9264101
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.3765161
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000013035446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102295330434362286, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000052979265
+      objectReference: {fileID: 0}
     - target: {fileID: 2848899473202536443, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1445,9 +1473,25 @@ PrefabInstance:
       propertyPath: <DashCoolDownTimerUI>k__BackingField
       value: 
       objectReference: {fileID: 17595369}
+    - target: {fileID: 3865439862842788334, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: Composition.ScreenPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160046465018529598, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: Lens.ModeOverride
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5765651136313238409, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
       propertyPath: m_Name
       value: Pf_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804797131389692260, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: FollowOffset.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804797131389692260, guid: 22619382e2007f846b95b48d9ee4d8ee, type: 3}
+      propertyPath: FollowOffset.z
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
