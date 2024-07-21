@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 2667123554752791858}
   - component: {fileID: 2526305909446707063}
   - component: {fileID: 5694170013380340274}
-  - component: {fileID: 1156315899706184550}
+  - component: {fileID: 769980384366164116}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1156315899706184550
+--- !u!114 &769980384366164116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2652146456259301054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6c7aa7c7a04a645ad398201b8165d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1216,7 +1216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 234659746118463525}
-        m_TargetAssemblyTypeName: WTF_GameJam.Player.GameMenuHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: WTF_GameJam.Player.UIHandler, Assembly-CSharp
         m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 8453275946783247053}
   - component: {fileID: 4700748985340701120}
   - component: {fileID: 2065463612188322188}
-  - component: {fileID: 7401311303186699477}
+  - component: {fileID: 5174873040396443566}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7401311303186699477
+--- !u!114 &5174873040396443566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393535951651816929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6c7aa7c7a04a645ad398201b8165d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1485,7 +1485,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 234659746118463525}
-        m_TargetAssemblyTypeName: WTF_GameJam.Player.GameMenuHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: WTF_GameJam.Player.UIHandler, Assembly-CSharp
         m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:
@@ -1855,7 +1855,7 @@ GameObject:
   - component: {fileID: 223742681938630774}
   - component: {fileID: 4517173960428087984}
   - component: {fileID: 7466234404695676943}
-  - component: {fileID: 2481092018987745948}
+  - component: {fileID: 1226396013202683406}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2481092018987745948
+--- !u!114 &1226396013202683406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4527488621509184690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6c7aa7c7a04a645ad398201b8165d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1966,7 +1966,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 234659746118463525}
-        m_TargetAssemblyTypeName: WTF_GameJam.Player.GameMenuHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: WTF_GameJam.Player.UIHandler, Assembly-CSharp
         m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:

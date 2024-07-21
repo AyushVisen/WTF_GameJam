@@ -69,7 +69,7 @@ namespace WTF_GameJam.Player
 		public void GoToHome()
 		{
 			Time.timeScale = 1;
-			UnityEngine.SceneManagement.SceneManager.LoadScene( 0 );
+			UnityEngine.SceneManagement.SceneManager.LoadScene( "Home" );
 		}
 	}
 }

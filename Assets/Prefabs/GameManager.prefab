@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bc5f1845ab37b4088d267bd2bd3b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <SceneToLoad>k__BackingField: Home
 --- !u!1 &1893213836430636272
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.025
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -271,6 +272,7 @@ MonoBehaviour:
   _audioMixer: {fileID: 24100000, guid: 601850158a66aa84193bc3af5bba938e, type: 2}
   _audioSourceMusic: {fileID: 5300487137760045959}
   _audioSourceSFX: {fileID: 1433155286960577476}
+  _buttonSound: {fileID: 8300000, guid: 1a51a8a61c7bf1c4a87b8de8fc28085c, type: 3}
 --- !u!1 &8565306995683604300
 GameObject:
   m_ObjectHideFlags: 0
