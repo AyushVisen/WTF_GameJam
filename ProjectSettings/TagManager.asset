@@ -7,6 +7,8 @@ TagManager:
   - Npc
   - EnemyAttackObject
   - PlayerAOE
+  - Reactor
+  - BotDeathObjectiveGate
   layers:
   - Default
   - TransparentFX

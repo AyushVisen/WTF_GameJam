@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,15 +19,8 @@ namespace WTF_GameJam.Player
 		public GameObject WinMenu { get; private set; }
 
 
-
-		[field: SerializeField]
-		public GameObject DashGuideUI { get; private set; }
-
 		[field: SerializeField]
 		public Image DashCoolDownTimerUI { get; private set; }
-
-		[field: SerializeField]
-		public GameObject DashCoolDownTextUI { get; private set; }
 
 		[field: SerializeField]
 		public Image AoeCoolDownTimerUI { get; private set; }
@@ -36,6 +30,12 @@ namespace WTF_GameJam.Player
 
 		[field: SerializeField]
 		public GameObject DoctorIsDead { get; private set; }
+
+		[field: SerializeField]
+		public TextMeshProUGUI ObjectiveCountText { get; private set; }
+
+		[field: SerializeField]
+		public TextMeshProUGUI ObjectiveGuideText { get; private set; }
 
 
 		public HealthBehavior PlayerHealthBehaviour { get; set; }

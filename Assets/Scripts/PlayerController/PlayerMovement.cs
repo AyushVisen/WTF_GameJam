@@ -1,5 +1,7 @@
 using Ayush;
+using DG.Tweening;
 using UnityEngine;
+using WTF_GameJam.AI;
 using WTF_GameJam.Health;
 
 namespace WTF_GameJam.Player
@@ -36,6 +38,14 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public AudioClip DashSFX { get; private set; }
 
+		[field: SerializeField]
+		public GameObject NavigationArrow { get; private set; }
+
+		[field: SerializeField]
+		public int BotDeathCountObjective { get; private set; }
+
+		
+		public GameObject BotDeathObjectiveGate { get; private set; }
 		public UIHandler UIHandler { get; private set; }
 		public HealthBehavior HealthBehavior { get; private set; }
 
@@ -53,6 +63,7 @@ namespace WTF_GameJam.Player
 		private float _dashCooldownTime;
 		private float _aoeCoolDownTimeRemaining;
 		private AudioService _audioService;
+		private int _botDeathCount;
 
 		private void Awake()
 		{
@@ -68,14 +79,33 @@ namespace WTF_GameJam.Player
 			{
 				UIHandler.PlayerHealthBehaviour = HealthBehavior;
 				HealthBehavior.HealthFillImage = UIHandler.HealthFillImage;
+
+				if (UIHandler.ObjectiveCountText != null)
+				{
+					UIHandler.ObjectiveCountText.SetText( "{0}/{1}", _botDeathCount, BotDeathCountObjective );
+				}
+				if (UIHandler.ObjectiveGuideText != null)
+				{
+					UIHandler.ObjectiveGuideText.gameObject.SetActive( true );
+					UIHandler.ObjectiveGuideText.SetText( "Kill {0} enemies to unlock Reactor's entrance", BotDeathCountObjective );
+				}
 			}
 			CurrentAttackType = TypeOfAttack.None;
+			NavigationArrow.SetActive( false );
 			GameManager.Instance.TryGetService( out _audioService );
+			ExtendedBehaviorTreeProcessor.BotDeath += OnBotDeath;
+
+			BotDeathObjectiveGate = GameObject.FindGameObjectWithTag( "BotDeathObjectiveGate" );
+			if (BotDeathObjectiveGate != null)
+			{
+				BotDeathObjectiveGate.SetActive( true );
+			}
 		}
 
 		private void OnDestroy()
 		{
 			_playerInputSystem.Player.Disable();
+			ExtendedBehaviorTreeProcessor.BotDeath -= OnBotDeath;
 		}
 
 		private void Update()
@@ -174,16 +204,6 @@ namespace WTF_GameJam.Player
 				}
 			}
 
-			if (UIHandler != null && UIHandler.DashGuideUI != null)
-			{
-				UIHandler.DashGuideUI.SetActive( !IsAttacking && !IsDashing && _dashCooldownTime <= 0);
-			}
-
-			if(UIHandler != null && UIHandler.DashCoolDownTextUI != null)
-			{
-				UIHandler.DashCoolDownTextUI.SetActive( _dashCooldownTime > 0 );
-			}
-
 			CharacterController.MaxStableMoveSpeed = moveSpeed;
 
 			LookDirection = lookDirection;
@@ -204,6 +224,32 @@ namespace WTF_GameJam.Player
 			if(IsAttacking == false)
 			{
 				CurrentAttackType = TypeOfAttack.None;
+			}
+		}
+
+		private void OnBotDeath()
+		{
+			if(_botDeathCount >= BotDeathCountObjective)
+			{
+				ExtendedBehaviorTreeProcessor.BotDeath -= OnBotDeath;
+				return;
+			}
+
+			_botDeathCount++;
+			if (UIHandler != null && UIHandler.ObjectiveCountText != null)
+			{
+				UIHandler.ObjectiveCountText.SetText( "{0}/{1}", _botDeathCount, BotDeathCountObjective );
+				UIHandler.ObjectiveCountText.rectTransform.DOPunchScale( Vector3.one * 0.5f, 0.5f );				
+			}
+			NavigationArrow.SetActive( _botDeathCount == BotDeathCountObjective );
+			if (BotDeathObjectiveGate != null)
+			{
+				BotDeathObjectiveGate.SetActive( false );
+			}
+
+			if (UIHandler != null && UIHandler.ObjectiveGuideText != null)
+			{
+				UIHandler.ObjectiveGuideText.gameObject.SetActive(false);
 			}
 		}
 	}

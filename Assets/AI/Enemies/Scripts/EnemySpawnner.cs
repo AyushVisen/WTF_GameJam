@@ -32,7 +32,8 @@ namespace WTF_GameJam.AI
 
 			if(_lastSpawnCounter <= 0)
 			{
-				Instantiate( GetRandomPrefabToSpawn(), transform.position, Quaternion.identity );
+				var offset = Random.insideUnitCircle * 0.5f;
+				Instantiate( GetRandomPrefabToSpawn(), transform.position + new Vector3(offset.x, 0, offset.y), Quaternion.identity );
 				_lastSpawnCounter = Random.Range( SpawnDurationIntervalMinMax.x, SpawnDurationIntervalMinMax.y );
 			}
 			else

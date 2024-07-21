@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &110078560671252419
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _npcBehaviorTreeProcessor: {fileID: 1888999284819164249}
-  <RequiredAttackToKillMe>k__BackingField: 3
+  <RequiredAttackToKillMe>k__BackingField: 6
 --- !u!54 &6542257377548791236
 Rigidbody:
   m_ObjectHideFlags: 0

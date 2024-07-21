@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pf_Reactor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d96aa4d61321f1498c161fb063532c6, type: 3}
+      propertyPath: m_TagString
+      value: Reactor
+      objectReference: {fileID: 0}
     - target: {fileID: 2554483773788277767, guid: 6d96aa4d61321f1498c161fb063532c6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

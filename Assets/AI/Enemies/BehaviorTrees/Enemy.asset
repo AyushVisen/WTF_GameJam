@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0479d74f7b815174d8849f919fb51dbd
   position: {x: 463.1679, y: -102.672}
-  waitTime: 0.5
+  waitTime: 0.1
 --- !u!114 &1187420991575509131
 MonoBehaviour:
   m_ObjectHideFlags: 0

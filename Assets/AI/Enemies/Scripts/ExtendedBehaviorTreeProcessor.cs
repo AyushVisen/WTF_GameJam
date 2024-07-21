@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,6 +26,8 @@ namespace WTF_GameJam.AI
 		private BotAttackNode _botAttackNode;
 
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
+
+		public static event Action BotDeath;
 
 		protected override void Start()
 		{
@@ -69,6 +72,13 @@ namespace WTF_GameJam.AI
 
 		public void GetPreferedDestination()
 		{
+			var random = UnityEngine.Random.Range( 0, 2 );
+
+			if (random == 0)
+			{
+				TargetPreferenceOrder.Reverse();
+			}
+
 			if (_botSetDestinationNode == null)
 			{
 				Debug.LogError( "BotSetDestinationNode not found" );
@@ -90,7 +100,7 @@ namespace WTF_GameJam.AI
 
 				if (npcs != null && npcs.Count > 0)
 				{
-					var randomIndex = Random.Range( 0, npcs.Count );
+					var randomIndex = UnityEngine.Random.Range( 0, npcs.Count );
 					_botSetDestinationNode.DestinationTransform = npcs[randomIndex].transform;
 				}
 				else
@@ -105,6 +115,7 @@ namespace WTF_GameJam.AI
 		public void SetIsDead(bool value)
 		{
 			IsDead = value;
+			BotDeath?.Invoke();
 		}
 
 		public void AttackEnd()
