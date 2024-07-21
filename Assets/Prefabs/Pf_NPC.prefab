@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _npcBehaviorTreeProcessor: {fileID: 1888999284819164249}
-  <RequiredAttackToKillMe>k__BackingField: 10
+  <RequiredAttackToKillMe>k__BackingField: 12
 --- !u!54 &6542257377548791236
 Rigidbody:
   m_ObjectHideFlags: 0

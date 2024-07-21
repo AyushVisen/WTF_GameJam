@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 3701738466948392373}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000005580517, y: -0.0000014747264, z: 0.000047255227, w: 1}
-  m_LocalPosition: {x: -0.00016907699, y: 1.7094177, z: 0.60559726}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalPosition: {x: -0, y: 1.709, z: 0.548}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7357986524492112481}
@@ -103,13 +103,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4140082445246163866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3285739885630944765}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!212 &7144686223805863681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 301a0567605855779c23c0618f7c9213, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39607844}
+  m_Sprite: {fileID: 21300000, guid: 90335e5423c010749a50f906b965fa54, type: 3}
+  m_Color: {r: 1, g: 0.017119544, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   <AoeCoolDownTime>k__BackingField: 10
   <DashSFX>k__BackingField: {fileID: 8300000, guid: 67fa1dfb565bf074789f4b341e59bf50, type: 3}
   <NavigationArrow>k__BackingField: {fileID: 3701738466948392373}
-  <BotDeathCountObjective>k__BackingField: 25
+  <BotDeathCountObjective>k__BackingField: 15
 --- !u!114 &5042770514823415015
 MonoBehaviour:
   m_ObjectHideFlags: 0

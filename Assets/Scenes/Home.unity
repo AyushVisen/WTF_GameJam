@@ -2030,8 +2030,10 @@ MonoBehaviour:
   <BGM>k__BackingField: {fileID: 8300000, guid: 9e9bec7eb4f5ed946b330ab679ee0929, type: 3}
   <Levels>k__BackingField:
   - Level3
+  - Level5
   - Level6
   - Level8
+  - Level10
   <SceneToLoad>k__BackingField: 
 --- !u!1 &1160260604
 GameObject:

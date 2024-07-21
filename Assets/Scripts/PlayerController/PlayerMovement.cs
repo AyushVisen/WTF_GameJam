@@ -44,7 +44,7 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public int BotDeathCountObjective { get; private set; }
 
-		
+
 		public GameObject BotDeathObjectiveGate { get; private set; }
 		public UIHandler UIHandler { get; private set; }
 		public HealthBehavior HealthBehavior { get; private set; }
@@ -64,6 +64,7 @@ namespace WTF_GameJam.Player
 		private float _aoeCoolDownTimeRemaining;
 		private AudioService _audioService;
 		private int _botDeathCount;
+		private Tween _objectiveCounterTween;
 
 		private void Awake()
 		{
@@ -123,7 +124,7 @@ namespace WTF_GameJam.Player
 			SwingAttackInput = _playerInputSystem.Player.SwingAttack.IsPressed() && !IsDashing && !IsAttacking;
 			AOEAttackInput = _playerInputSystem.Player.AOEAttack.IsPressed() && !IsDashing && !IsAttacking;
 
-			if(_aoeCoolDownTimeRemaining > 0f)
+			if (_aoeCoolDownTimeRemaining > 0f)
 			{
 				_aoeCoolDownTimeRemaining -= Time.deltaTime;
 				AOEAttackInput = false;
@@ -135,7 +136,7 @@ namespace WTF_GameJam.Player
 
 			if (AOEAttackInput)
 			{
-				if(_aoeCoolDownTimeRemaining <= 0f)
+				if (_aoeCoolDownTimeRemaining <= 0f)
 				{
 					_aoeCoolDownTimeRemaining = AoeCoolDownTime;
 				}
@@ -143,18 +144,18 @@ namespace WTF_GameJam.Player
 
 			if (CurrentAttackType == TypeOfAttack.None)
 			{
-				if(SwingAttackInput)
+				if (SwingAttackInput)
 				{
 					CurrentAttackType = TypeOfAttack.SwordSwing;
 				}
-				if(AOEAttackInput)
+				if (AOEAttackInput)
 				{
 					CurrentAttackType = TypeOfAttack.AOE;
 				}
 			}
 
 			var lookDirection = CharacterController.Motor.BaseVelocity.normalized;
-			
+
 			if (lookDirection.sqrMagnitude > 0)
 			{
 				PlayerAvatarRoot.transform.forward = new Vector3( lookDirection.x, 0, lookDirection.z );
@@ -162,11 +163,11 @@ namespace WTF_GameJam.Player
 
 			float moveSpeed = 0;
 
-			if(IsAttacking == false)
+			if (IsAttacking == false)
 			{
 				if (dashInput)
 				{
-					if(_dashTimeRemaining <= 0f && _dashCooldownTime <= 0f)
+					if (_dashTimeRemaining <= 0f && _dashCooldownTime <= 0f)
 					{
 						_dashTimeRemaining = DashTime;
 						if (_audioService != null)
@@ -184,7 +185,7 @@ namespace WTF_GameJam.Player
 				{
 					_dashTimeRemaining -= Time.deltaTime;
 
-					if(_dashTimeRemaining <= 0f)
+					if (_dashTimeRemaining <= 0f)
 					{
 						_dashCooldownTime = DashCooldownTime;
 					}
@@ -194,11 +195,11 @@ namespace WTF_GameJam.Player
 				}
 			}
 
-			if(_dashCooldownTime > 0)
+			if (_dashCooldownTime > 0)
 			{
 				_dashCooldownTime -= Time.deltaTime;
 
-				if(UIHandler != null && UIHandler.DashCoolDownTimerUI != null)
+				if (UIHandler != null && UIHandler.DashCoolDownTimerUI != null)
 				{
 					UIHandler.DashCoolDownTimerUI.fillAmount = (1 - _dashCooldownTime / DashCooldownTime);
 				}
@@ -218,10 +219,10 @@ namespace WTF_GameJam.Player
 			CharacterController.SetInputs( ref characterInputs );
 		}
 
-		public void SetIsAttacking(bool isAttacking)
+		public void SetIsAttacking( bool isAttacking )
 		{
 			IsAttacking = isAttacking;
-			if(IsAttacking == false)
+			if (IsAttacking == false)
 			{
 				CurrentAttackType = TypeOfAttack.None;
 			}
@@ -229,7 +230,7 @@ namespace WTF_GameJam.Player
 
 		private void OnBotDeath()
 		{
-			if(_botDeathCount >= BotDeathCountObjective)
+			if (_botDeathCount >= BotDeathCountObjective)
 			{
 				ExtendedBehaviorTreeProcessor.BotDeath -= OnBotDeath;
 				return;
@@ -238,8 +239,13 @@ namespace WTF_GameJam.Player
 			_botDeathCount++;
 			if (UIHandler != null && UIHandler.ObjectiveCountText != null)
 			{
+				if (_objectiveCounterTween != null)
+				{
+					_objectiveCounterTween.Kill();
+					UIHandler.ObjectiveCountText.rectTransform.localScale = Vector3.one;
+				}
 				UIHandler.ObjectiveCountText.SetText( "{0}/{1}", _botDeathCount, BotDeathCountObjective );
-				UIHandler.ObjectiveCountText.rectTransform.DOPunchScale( Vector3.one * 0.5f, 0.5f );				
+				_objectiveCounterTween = UIHandler.ObjectiveCountText.rectTransform.DOPunchScale( Vector3.one * 0.5f, 0.5f );
 			}
 			NavigationArrow.SetActive( _botDeathCount == BotDeathCountObjective );
 			if (BotDeathObjectiveGate != null)
@@ -249,7 +255,7 @@ namespace WTF_GameJam.Player
 
 			if (UIHandler != null && UIHandler.ObjectiveGuideText != null)
 			{
-				UIHandler.ObjectiveGuideText.gameObject.SetActive(false);
+				UIHandler.ObjectiveGuideText.gameObject.SetActive( false );
 			}
 		}
 	}
