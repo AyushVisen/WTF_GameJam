@@ -2029,7 +2029,7 @@ MonoBehaviour:
   <SfxToggle>k__BackingField: {fileID: 2040646409}
   <BGM>k__BackingField: {fileID: 8300000, guid: 621ebd4dec66be147bc81181f59b6fea, type: 3}
   <Levels>k__BackingField:
-  - PrototypeLevel
+  - Level3
   <SceneToLoad>k__BackingField: 
 --- !u!1 &1160260604
 GameObject:
