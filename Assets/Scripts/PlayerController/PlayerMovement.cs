@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using WTF_GameJam.Health;
 
 namespace WTF_GameJam.Player
 {
@@ -24,15 +24,6 @@ namespace WTF_GameJam.Player
 		public float DashTime { get; private set; }
 
 		[field: SerializeField]
-		public GameObject DashGuideUI { get; private set; }
-
-		[field: SerializeField]
-		public Image DashCoolDownTimerUI { get; private set; }
-
-		[field: SerializeField]
-		public GameObject DashCoolDownTextUI { get; private set; }
-
-		[field: SerializeField]
 		public float DashCooldownTime { get; private set; }
 
 		[field: SerializeField]
@@ -41,8 +32,8 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public float AoeCoolDownTime { get; private set; }
 
-		[field: SerializeField]
-		public Image AoeCoolDownTimerUI { get; private set; }
+		public UIHandler UIHandler { get; private set; }
+		public HealthBehavior HealthBehavior { get; private set; }
 
 		public Vector3 LookDirection { get; private set; }
 		public Vector3 MoveInput { get; private set; }
@@ -62,6 +53,14 @@ namespace WTF_GameJam.Player
 		{
 			_playerInputSystem = new PlayerInputSystem();
 			_playerInputSystem.Player.Enable();
+		}
+
+		private void Start()
+		{
+			HealthBehavior = GetComponent<HealthBehavior>();
+			UIHandler = FindFirstObjectByType<UIHandler>();
+			UIHandler.PlayerHealthBehaviour = HealthBehavior;
+			CurrentAttackType = TypeOfAttack.None;
 		}
 
 		private void OnDestroy()
@@ -88,9 +87,9 @@ namespace WTF_GameJam.Player
 			{
 				_aoeCoolDownTimeRemaining -= Time.deltaTime;
 				AOEAttackInput = false;
-				if (AoeCoolDownTimerUI != null)
+				if (UIHandler != null && UIHandler.AoeCoolDownTimerUI != null)
 				{
-					AoeCoolDownTimerUI.fillAmount = (1 - _aoeCoolDownTimeRemaining / AoeCoolDownTime);
+					UIHandler.AoeCoolDownTimerUI.fillAmount = (1 - _aoeCoolDownTimeRemaining / AoeCoolDownTime);
 				}
 			}
 
@@ -155,20 +154,20 @@ namespace WTF_GameJam.Player
 			{
 				_dashCooldownTime -= Time.deltaTime;
 
-				if(DashCoolDownTimerUI != null)
+				if(UIHandler != null && UIHandler.DashCoolDownTimerUI != null)
 				{
-					DashCoolDownTimerUI.fillAmount = (1 - _dashCooldownTime / DashCooldownTime);
+					UIHandler.DashCoolDownTimerUI.fillAmount = (1 - _dashCooldownTime / DashCooldownTime);
 				}
 			}
 
-			if (DashGuideUI != null)
+			if (UIHandler != null && UIHandler.DashGuideUI != null)
 			{
-				DashGuideUI.SetActive( !IsAttacking && !IsDashing && _dashCooldownTime <= 0);
+				UIHandler.DashGuideUI.SetActive( !IsAttacking && !IsDashing && _dashCooldownTime <= 0);
 			}
 
-			if(DashCoolDownTextUI != null)
+			if(UIHandler != null && UIHandler.DashCoolDownTextUI != null)
 			{
-				DashCoolDownTextUI.SetActive( _dashCooldownTime > 0 );
+				UIHandler.DashCoolDownTextUI.SetActive( _dashCooldownTime > 0 );
 			}
 
 			CharacterController.MaxStableMoveSpeed = moveSpeed;
