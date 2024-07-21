@@ -2316,6 +2316,7 @@ MonoBehaviour:
   <DashCoolDownTimerUI>k__BackingField: {fileID: 3795471668632242795}
   <DashCoolDownTextUI>k__BackingField: {fileID: 5072421488307785442}
   <AoeCoolDownTimerUI>k__BackingField: {fileID: 4806435631828837971}
+  <HealthFillImage>k__BackingField: {fileID: 1467060113630694668}
 --- !u!1 &5622197528512705133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3464,7 +3465,7 @@ GameObject:
   - component: {fileID: 25132342468910450}
   - component: {fileID: 7805670975777974602}
   m_Layer: 5
-  m_Name: PauseGuide
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

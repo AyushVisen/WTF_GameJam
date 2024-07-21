@@ -1,3 +1,4 @@
+using Ayush;
 using UnityEngine;
 using WTF_GameJam.Health;
 
@@ -32,6 +33,9 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public float AoeCoolDownTime { get; private set; }
 
+		[field: SerializeField]
+		public AudioClip DashSFX { get; private set; }
+
 		public UIHandler UIHandler { get; private set; }
 		public HealthBehavior HealthBehavior { get; private set; }
 
@@ -48,6 +52,7 @@ namespace WTF_GameJam.Player
 		private float _dashTimeRemaining;
 		private float _dashCooldownTime;
 		private float _aoeCoolDownTimeRemaining;
+		private AudioService _audioService;
 
 		private void Awake()
 		{
@@ -59,8 +64,13 @@ namespace WTF_GameJam.Player
 		{
 			HealthBehavior = GetComponent<HealthBehavior>();
 			UIHandler = FindFirstObjectByType<UIHandler>();
-			UIHandler.PlayerHealthBehaviour = HealthBehavior;
+			if (UIHandler != null)
+			{
+				UIHandler.PlayerHealthBehaviour = HealthBehavior;
+				HealthBehavior.HealthFillImage = UIHandler.HealthFillImage;
+			}
 			CurrentAttackType = TypeOfAttack.None;
+			GameManager.Instance.TryGetService( out _audioService );
 		}
 
 		private void OnDestroy()
@@ -129,6 +139,10 @@ namespace WTF_GameJam.Player
 					if(_dashTimeRemaining <= 0f && _dashCooldownTime <= 0f)
 					{
 						_dashTimeRemaining = DashTime;
+						if (_audioService != null)
+						{
+							_audioService.PlaySfx( DashSFX );
+						}
 					}
 				}
 				else

@@ -240,13 +240,10 @@ MonoBehaviour:
   <NormalSpeed>k__BackingField: 5
   <DashSpeed>k__BackingField: 15
   <DashTime>k__BackingField: 0.35
-  <DashGuideUI>k__BackingField: {fileID: 0}
-  <DashCoolDownTimerUI>k__BackingField: {fileID: 0}
-  <DashCoolDownTextUI>k__BackingField: {fileID: 0}
   <DashCooldownTime>k__BackingField: 1
   <SwordSwingDamageRange>k__BackingField: 2
   <AoeCoolDownTime>k__BackingField: 10
-  <AoeCoolDownTimerUI>k__BackingField: {fileID: 0}
+  <DashSFX>k__BackingField: {fileID: 8300000, guid: 67fa1dfb565bf074789f4b341e59bf50, type: 3}
 --- !u!114 &5042770514823415015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +361,6 @@ MonoBehaviour:
   <IsInvincible>k__BackingField: 0
   <CanRegenerate>k__BackingField: 0
   <RegenerationRate>k__BackingField: 1
-  <HealthFillImage>k__BackingField: {fileID: 0}
   <CurrentHealth>k__BackingField: 1
 --- !u!1001 &576238881872081106
 PrefabInstance:
@@ -544,6 +540,8 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 7953853929695786825}
   <PlayerMovement>k__BackingField: {fileID: 3663861833592488011}
   <AoeVolume>k__BackingField: {fileID: 93983149168735088}
+  <SwordSFX>k__BackingField: {fileID: 8300000, guid: f815c9904bb218b44897c5ae6af6a595, type: 3}
+  <AoeSFX>k__BackingField: {fileID: 8300000, guid: 3f5f27041adc3514b92a64ecc126472f, type: 3}
 --- !u!4 &4071791541786602803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1f90e76e9226d74697afa7f778e470d, type: 3}

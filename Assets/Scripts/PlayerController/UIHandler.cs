@@ -29,6 +29,9 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public Image AoeCoolDownTimerUI { get; private set; }
 
+		[field: SerializeField]
+		public Image HealthFillImage { get; private set; }
+
 
 		public HealthBehavior PlayerHealthBehaviour { get; set; }
 

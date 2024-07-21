@@ -19,10 +19,9 @@ namespace WTF_GameJam.Health
 		public float RegenerationRate { get; private set; }
 
 		[field: SerializeField]
-		public Image HealthFillImage { get; private set; }
-
-		[field: SerializeField]
 		public float CurrentHealth { get; private set; }
+
+		public Image HealthFillImage { get; set; }
 
 		public bool IsDead => CurrentHealth <= 0;
 
