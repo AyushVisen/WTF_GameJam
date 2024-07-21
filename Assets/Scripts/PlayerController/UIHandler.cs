@@ -1,14 +1,11 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 using WTF_GameJam.Health;
 
 namespace WTF_GameJam.Player
 {
-	public class GameMenuHandler : MonoBehaviour
+	public class UIHandler : MonoBehaviour
 	{
-		[field: SerializeField]
-		public HealthBehavior PlayerHealthBehaviour { get; private set; }
-
 		[field: SerializeField]
 		public GameObject GameOverMenu { get; private set; }
 
@@ -18,12 +15,30 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public GameObject WinMenu { get; private set; }
 
+
+
+		[field: SerializeField]
+		public GameObject DashGuideUI { get; private set; }
+
+		[field: SerializeField]
+		public Image DashCoolDownTimerUI { get; private set; }
+
+		[field: SerializeField]
+		public GameObject DashCoolDownTextUI { get; private set; }
+
+		[field: SerializeField]
+		public Image AoeCoolDownTimerUI { get; private set; }
+
+		[field: SerializeField]
+		public Image HealthFillImage { get; private set; }
+
+
+		public HealthBehavior PlayerHealthBehaviour { get; set; }
+
 		private void Start()
 		{
 			GameOverMenu.SetActive( false );
 			PauseMenu.SetActive( false );
-
-			PlayerHealthBehaviour = FindFirstObjectByType<HealthBehavior>();
 		}
 
 		private void Update()
@@ -57,7 +72,7 @@ namespace WTF_GameJam.Player
 		public void GoToHome()
 		{
 			Time.timeScale = 1;
-			UnityEngine.SceneManagement.SceneManager.LoadScene( 0 );
+			UnityEngine.SceneManagement.SceneManager.LoadScene( "Home" );
 		}
 	}
 }

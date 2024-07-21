@@ -1,3 +1,4 @@
+using Ayush;
 using UnityEngine;
 
 namespace WTF_GameJam.Player
@@ -13,11 +14,24 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public GameObject AoeVolume { get; private set; }
 
+		[field: SerializeField]
+		public AudioClip SwordSFX { get; private set; }
+
+		[field: SerializeField]
+		public AudioClip AoeSFX { get; private set; }
+
+		private AudioService _audioService;
+
 		private int VelocityXHash = Animator.StringToHash( "VelocityX" );
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
 		private int SwingAttackHash = Animator.StringToHash( "SwingAttack" );
 		private int AOEAttackHash = Animator.StringToHash( "AOEAttack" );
 		private int DashHash = Animator.StringToHash( "Dash" );
+
+		private void Start()
+		{
+			GameManager.Instance.TryGetService( out _audioService );
+		}
 
 		// Update is called once per frame
 		void Update()
@@ -35,6 +49,10 @@ namespace WTF_GameJam.Player
 			{ 
 				Animator.SetTrigger( SwingAttackHash );
 				PlayerMovement.SetIsAttacking( true );
+				if (_audioService != null)
+				{
+					_audioService.PlaySfx( SwordSFX );
+				}
 			}
 			if (PlayerMovement.AOEAttackInput)
 			{
@@ -53,6 +71,10 @@ namespace WTF_GameJam.Player
 		public void EnableAoeVolume()
 		{
 			AoeVolume.SetActive( true );
+			if(_audioService != null)
+			{
+				_audioService.PlaySfx( AoeSFX );
+			}
 		}
 
 		public void DisableAoeVolume()
