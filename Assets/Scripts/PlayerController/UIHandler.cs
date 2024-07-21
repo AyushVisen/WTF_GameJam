@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using WTF_GameJam.AI;
 using WTF_GameJam.Health;
 
 namespace WTF_GameJam.Player
@@ -32,13 +33,19 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public Image HealthFillImage { get; private set; }
 
+		[field: SerializeField]
+		public GameObject DoctorIsDead { get; private set; }
+
 
 		public HealthBehavior PlayerHealthBehaviour { get; set; }
+		public NPCBehaviorTreeProcessor NPCBehaviorTreeProcessor { get; set; }
 
 		private void Start()
 		{
 			GameOverMenu.SetActive( false );
+			WinMenu.SetActive( false );
 			PauseMenu.SetActive( false );
+			DoctorIsDead.SetActive( false );
 		}
 
 		private void Update()
@@ -64,7 +71,13 @@ namespace WTF_GameJam.Player
 			}
 		}
 
-		private void ShowGameOverMenu()
+		public void ShowGameOverUIWithComment()
+		{
+			DoctorIsDead.SetActive( true );
+			GameOverMenu.SetActive( true );
+		}
+
+		public void ShowGameOverMenu()
 		{
 			GameOverMenu.SetActive( true );
 		}
@@ -73,6 +86,11 @@ namespace WTF_GameJam.Player
 		{
 			Time.timeScale = 1;
 			UnityEngine.SceneManagement.SceneManager.LoadScene( "Home" );
+		}
+
+		public void ShowWinUI()
+		{
+			WinMenu.SetActive( true );
 		}
 	}
 }

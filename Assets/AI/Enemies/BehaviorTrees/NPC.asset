@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 75256918c8757ba40b490d297158788c
   position: {x: 467.37598, y: -3.2000122}
-  _minDistanceForRangeCheck: 4
+  _minDistanceForRangeCheck: 2.5
 --- !u!114 &3938800094416973273
 MonoBehaviour:
   m_ObjectHideFlags: 0

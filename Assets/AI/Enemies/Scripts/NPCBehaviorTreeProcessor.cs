@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using WTF_GameJam.Player;
 
 namespace WTF_GameJam.AI
 {
@@ -14,6 +15,7 @@ namespace WTF_GameJam.AI
 		public bool IsDead { get; private set; }
 		public bool IsHit { get; private set; }
 		private BotSetDestinationNode _botSetDestinationNode;
+		private UIHandler UIHandler { get; set; }
 
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
 
@@ -31,6 +33,7 @@ namespace WTF_GameJam.AI
 
 			_botSetDestinationNode.BotTransform = transform;
 			_botSetDestinationNode.Agent = NavMeshAgent;
+			UIHandler = FindFirstObjectByType<UIHandler>();
 		}
 
 		protected override void Update()
@@ -60,6 +63,7 @@ namespace WTF_GameJam.AI
 		public void OnDeath()
 		{
 			Animator.enabled = false;
+			UIHandler.ShowGameOverUIWithComment();
 			Destroy( gameObject );
 		}
 
