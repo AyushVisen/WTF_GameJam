@@ -42,6 +42,13 @@ namespace WTF_GameJam.AI
 					}
 				}
 			}
+
+			if(other.CompareTag("PlayerAOE"))
+			{
+				RequiredAttackToKillMe = 0;
+				_extennedBehaviorTreeProcessor.SetIsDead(true);
+				_extennedBehaviorTreeProcessor.Animator.SetTrigger(DieHash);
+			}
 		}		
 	}
 }

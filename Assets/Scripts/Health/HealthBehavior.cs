@@ -30,7 +30,7 @@ namespace WTF_GameJam.Health
 
 		private void Start()
 		{
-			CurrentHealth = MaxHealth / 2;
+			CurrentHealth = MaxHealth;
 			if (GameManager.Instance.TryGetService( out _updateCallbackService ))
 			{
 				RegisterUpdateCallback();

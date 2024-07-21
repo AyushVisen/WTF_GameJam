@@ -38,6 +38,12 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public float SwordSwingDamageRange { get; private set; }
 
+		[field: SerializeField]
+		public float AoeCoolDownTime { get; private set; }
+
+		[field: SerializeField]
+		public Image AoeCoolDownTimerUI { get; private set; }
+
 		public Vector3 LookDirection { get; private set; }
 		public Vector3 MoveInput { get; private set; }
 		public bool SwingAttackInput { get; private set; }
@@ -50,6 +56,7 @@ namespace WTF_GameJam.Player
 		private PlayerInputSystem _playerInputSystem;
 		private float _dashTimeRemaining;
 		private float _dashCooldownTime;
+		private float _aoeCoolDownTimeRemaining;
 
 		private void Awake()
 		{
@@ -76,6 +83,24 @@ namespace WTF_GameJam.Player
 			var dashInput = _playerInputSystem.Player.Dash.IsPressed();
 			SwingAttackInput = _playerInputSystem.Player.SwingAttack.IsPressed() && !IsDashing && !IsAttacking;
 			AOEAttackInput = _playerInputSystem.Player.AOEAttack.IsPressed() && !IsDashing && !IsAttacking;
+
+			if(_aoeCoolDownTimeRemaining > 0f)
+			{
+				_aoeCoolDownTimeRemaining -= Time.deltaTime;
+				AOEAttackInput = false;
+				if (AoeCoolDownTimerUI != null)
+				{
+					AoeCoolDownTimerUI.fillAmount = (1 - _aoeCoolDownTimeRemaining / AoeCoolDownTime);
+				}
+			}
+
+			if (AOEAttackInput)
+			{
+				if(_aoeCoolDownTimeRemaining <= 0f)
+				{
+					_aoeCoolDownTimeRemaining = AoeCoolDownTime;
+				}
+			}
 
 			if (CurrentAttackType == TypeOfAttack.None)
 			{
@@ -132,7 +157,7 @@ namespace WTF_GameJam.Player
 
 				if(DashCoolDownTimerUI != null)
 				{
-					DashCoolDownTimerUI.fillAmount = _dashCooldownTime / DashCooldownTime;
+					DashCoolDownTimerUI.fillAmount = (1 - _dashCooldownTime / DashCooldownTime);
 				}
 			}
 

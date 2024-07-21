@@ -10,6 +10,9 @@ namespace WTF_GameJam.Player
 		[field: SerializeField]
 		public PlayerMovement PlayerMovement { get; private set; }
 
+		[field: SerializeField]
+		public GameObject AoeVolume { get; private set; }
+
 		private int VelocityXHash = Animator.StringToHash( "VelocityX" );
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
 		private int SwingAttackHash = Animator.StringToHash( "SwingAttack" );
@@ -45,6 +48,16 @@ namespace WTF_GameJam.Player
 		public void AttackEnd()
 		{
 			PlayerMovement.SetIsAttacking( false );
+		}
+
+		public void EnableAoeVolume()
+		{
+			AoeVolume.SetActive( true );
+		}
+
+		public void DisableAoeVolume()
+		{
+			AoeVolume.SetActive( false );
 		}
 	}
 }
