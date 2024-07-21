@@ -8,6 +8,8 @@ namespace WTF_GameJam.AI
 		[SerializeField]
 		private ExtendedBehaviorTreeProcessor _extennedBehaviorTreeProcessor;
 
+		public ExtendedBehaviorTreeProcessor ExtendedBehaviorTreeProcessor => _extennedBehaviorTreeProcessor;
+
 		[field: SerializeField]
 		public int RequiredAttackToKillMe { get; private set; }
 
@@ -19,7 +21,7 @@ namespace WTF_GameJam.AI
 			if (_extennedBehaviorTreeProcessor.IsDead || _extennedBehaviorTreeProcessor.IsHit)
 				return;
 
-			var playerMovement = other.transform.root.GetComponent<PlayerMovement>();
+			var playerMovement = other.transform.root.GetComponentInChildren<PlayerMovement>();
 			if(playerMovement != null )
 			{
 				if (playerMovement.CurrentAttackType == TypeOfAttack.SwordSwing)

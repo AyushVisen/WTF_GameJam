@@ -23,6 +23,18 @@ public class BotSetDestinationNode : LeafNode
 			return NodeStatus.Failed;
 		}
 
+		if (DestinationTransform == null)
+		{
+			Debug.Log( $"DestinationTransform Null" );
+			return NodeStatus.Failed;
+		}
+
+		if (BotTransform == null)
+		{
+			Debug.Log( $"BotTransform Null" );
+			return NodeStatus.Failed;
+		}
+
 		if ((DestinationTransform.position - BotTransform.position).sqrMagnitude <= _minDistanceForRangeCheck * _minDistanceForRangeCheck)
 		{
 			if (Agent.enabled == true)

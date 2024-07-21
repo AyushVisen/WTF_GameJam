@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,12 +16,14 @@ namespace WTF_GameJam.AI
 		[field: SerializeField]
 		public List<TargetType> TargetPreferenceOrder { get; private set; }
 
+		[field: SerializeField]
+		public GameObject BotAttackVFX { get; private set; }
+
 		public bool IsDead { get; private set; }
 		public bool IsHit { get; private set; }
 		private BotSetDestinationNode _botSetDestinationNode;
 		private BotAttackNode _botAttackNode;
 
-		private int VelocityXHash = Animator.StringToHash("VelocityX");
 		private int VelocityZHash = Animator.StringToHash( "VelocityZ" );
 
 		protected override void Start()
@@ -28,31 +31,7 @@ namespace WTF_GameJam.AI
 			base.Start();
 			_botSetDestinationNode = Tree.nodes.Find(x => x.GetType() == typeof(BotSetDestinationNode)) as BotSetDestinationNode;
 			_botAttackNode = Tree.nodes.Find(x => x.GetType() == typeof(BotAttackNode)) as BotAttackNode;
-
-			if (_botSetDestinationNode == null)
-			{
-				Debug.LogError("BotSetDestinationNode not found");
-			}
-
-			if(TargetPreferenceOrder[0] == TargetType.Player)
-			{
-				_botSetDestinationNode.DestinationTransform = GameObject.FindGameObjectWithTag("Player").transform;
-			}
-			else
-			{
-				var npcs = GameObject.FindGameObjectsWithTag("Npc");
-				if(npcs != null && npcs.Length > 0)
-				{
-					var randomIndex = Random.Range(0, npcs.Length);
-					_botSetDestinationNode.DestinationTransform = npcs[randomIndex].transform;
-				}
-				else
-				{ 
-					_botSetDestinationNode.DestinationTransform = GameObject.FindGameObjectWithTag( "Player" ).transform;
-				}
-			}
-
-			_botSetDestinationNode.BotTransform = transform;
+			GetPreferedDestination();
 			_botSetDestinationNode.Agent = NavMeshAgent;
 			_botAttackNode.BotAnimator = Animator;
 		}
@@ -74,6 +53,53 @@ namespace WTF_GameJam.AI
 			{
 				Animator.SetFloat( VelocityZHash, 0 );
 			}
+
+			if(BotAttackVFX != null)
+			{
+				if(_botAttackNode.IsAttacking && BotAttackVFX.activeSelf == false)
+				{
+					BotAttackVFX.SetActive(true);
+				}
+				else if(_botAttackNode.IsAttacking == false && BotAttackVFX.activeSelf == true)
+				{
+					BotAttackVFX.SetActive(false);
+				}
+			}
+		}
+
+		public void GetPreferedDestination()
+		{
+			if (_botSetDestinationNode == null)
+			{
+				Debug.LogError( "BotSetDestinationNode not found" );
+			}
+
+			if (TargetPreferenceOrder[0] == TargetType.Player)
+			{
+				_botSetDestinationNode.DestinationTransform = GameObject.FindGameObjectWithTag( "Player" ).transform;
+			}
+			else
+			{
+				var npcs = GameObject.FindGameObjectsWithTag( "Npc" ).ToList();
+
+				var deadNpcs = npcs.FindAll( x => x.GetComponent<NPCBehaviorTreeProcessor>().IsDead );
+				foreach (var deadNpc in deadNpcs)
+				{
+					npcs.Remove( deadNpc );
+				}
+
+				if (npcs != null && npcs.Count > 0)
+				{
+					var randomIndex = Random.Range( 0, npcs.Count );
+					_botSetDestinationNode.DestinationTransform = npcs[randomIndex].transform;
+				}
+				else
+				{
+					_botSetDestinationNode.DestinationTransform = GameObject.FindGameObjectWithTag( "Player" ).transform;
+				}
+			}
+
+			_botSetDestinationNode.BotTransform = transform;
 		}
 
 		public void SetIsDead(bool value)
