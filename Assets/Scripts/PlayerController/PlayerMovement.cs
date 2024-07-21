@@ -247,15 +247,19 @@ namespace WTF_GameJam.Player
 				UIHandler.ObjectiveCountText.SetText( "{0}/{1}", _botDeathCount, BotDeathCountObjective );
 				_objectiveCounterTween = UIHandler.ObjectiveCountText.rectTransform.DOPunchScale( Vector3.one * 0.5f, 0.5f );
 			}
-			NavigationArrow.SetActive( _botDeathCount == BotDeathCountObjective );
-			if (BotDeathObjectiveGate != null)
-			{
-				BotDeathObjectiveGate.SetActive( false );
-			}
 
-			if (UIHandler != null && UIHandler.ObjectiveGuideText != null)
+			if (_botDeathCount == BotDeathCountObjective)
 			{
-				UIHandler.ObjectiveGuideText.gameObject.SetActive( false );
+				NavigationArrow.SetActive( true );
+				if (BotDeathObjectiveGate != null)
+				{
+					BotDeathObjectiveGate.SetActive( false );
+				}
+
+				if (UIHandler != null && UIHandler.ObjectiveGuideText != null)
+				{
+					UIHandler.ObjectiveGuideText.gameObject.SetActive( false );
+				}
 			}
 		}
 	}

@@ -379,7 +379,7 @@ MonoBehaviour:
   <AoeCoolDownTime>k__BackingField: 10
   <DashSFX>k__BackingField: {fileID: 8300000, guid: 67fa1dfb565bf074789f4b341e59bf50, type: 3}
   <NavigationArrow>k__BackingField: {fileID: 3701738466948392373}
-  <BotDeathCountObjective>k__BackingField: 15
+  <BotDeathCountObjective>k__BackingField: 12
 --- !u!114 &5042770514823415015
 MonoBehaviour:
   m_ObjectHideFlags: 0
