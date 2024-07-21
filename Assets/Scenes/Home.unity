@@ -2027,9 +2027,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MusicToggle>k__BackingField: {fileID: 1609171382}
   <SfxToggle>k__BackingField: {fileID: 2040646409}
-  <BGM>k__BackingField: {fileID: 8300000, guid: 621ebd4dec66be147bc81181f59b6fea, type: 3}
+  <BGM>k__BackingField: {fileID: 8300000, guid: 9e9bec7eb4f5ed946b330ab679ee0929, type: 3}
   <Levels>k__BackingField:
   - Level3
+  - Level6
+  - Level8
   <SceneToLoad>k__BackingField: 
 --- !u!1 &1160260604
 GameObject:
@@ -2088,7 +2090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME TITLE
+  m_text: BEFORE  FALLOUT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83299d7bb9f9ff94d91a8bf5de6735f4, type: 2}
   m_sharedMaterial: {fileID: 5470456968817291123, guid: 83299d7bb9f9ff94d91a8bf5de6735f4, type: 2}
@@ -2121,7 +2123,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535

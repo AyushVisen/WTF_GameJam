@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using WTF_GameJam.AI;
 using WTF_GameJam.Health;
@@ -85,7 +86,7 @@ namespace WTF_GameJam.Player
 		public void GoToHome()
 		{
 			Time.timeScale = 1;
-			UnityEngine.SceneManagement.SceneManager.LoadScene( "Home" );
+			SceneManager.LoadScene( 1 );
 		}
 
 		public void ShowWinUI()

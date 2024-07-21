@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4617922542561658447}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50246865, y: 0.000000033570565, z: -0.000000019509885, w: 0.8645955}
-  m_LocalPosition: {x: 0, y: 10.429999, z: -4}
+  m_LocalRotation: {x: 0.36555472, y: 0.6017704, z: -0.35908064, w: 0.61262006}
+  m_LocalPosition: {x: -3.999362, y: 10.43, z: -0.07146859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89,7 +89,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 90
+    FieldOfView: 75
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
