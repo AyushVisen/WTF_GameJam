@@ -693,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634655052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3765161, y: -0.000000013035447, z: 0.00000000529793, w: 0.9264101}
+  m_LocalRotation: {x: 0.5024687, y: 0.000000033570565, z: -0.000000019509885, w: 0.8645954}
   m_LocalPosition: {x: 14.995117, y: -18.710438, z: 6.5922775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -711,6 +711,22 @@ PrefabInstance:
     - target: {fileID: 1667054002095888503, guid: 1a1b533110efeb04581354c352767e81, type: 3}
       propertyPath: m_Name
       value: Tube Corridor_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974097956646831952, guid: 1a1b533110efeb04581354c352767e81, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 576593c4f6d6d5740aef8c48141b68e4, type: 2}
+    - target: {fileID: 1974097956646831952, guid: 1a1b533110efeb04581354c352767e81, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695394684423493042, guid: 1a1b533110efeb04581354c352767e81, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 3167df62989120b4fb93dbf789031a88, type: 2}
+    - target: {fileID: 5695394684423493042, guid: 1a1b533110efeb04581354c352767e81, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9107153314508335397, guid: 1a1b533110efeb04581354c352767e81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -809,6 +825,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tube corridor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2165283136339566032, guid: 37678ac470c2b564883b72cc81ab4a61, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 7b584fccf9a2c0d4b887518cc8d7ef9e, type: 2}
+    - target: {fileID: 2165283136339566032, guid: 37678ac470c2b564883b72cc81ab4a61, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024576692333990083, guid: 37678ac470c2b564883b72cc81ab4a61, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: e11e9db5e28d84e4ba5f5a3a5b0609d1, type: 2}
+    - target: {fileID: 8024576692333990083, guid: 37678ac470c2b564883b72cc81ab4a61, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -827,6 +859,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1539073876}
     m_Modifications:
+    - target: {fileID: 850156967497647121, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 7f1f8cc7180eb4a4080a55fe1bc60402, type: 2}
+    - target: {fileID: 850156967497647121, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226491090276592408, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 57055d47707264b49b0ec2a037ab00b2, type: 2}
+    - target: {fileID: 1226491090276592408, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284930394464014770, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: ec202503ad8e6be4d9a37699b5053b07, type: 2}
+    - target: {fileID: 1284930394464014770, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700962065129520694, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: fe1133b9dc83e7c42b7bcb9413971cc5, type: 2}
+    - target: {fileID: 1700962065129520694, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3061368375867741625, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: ae5302f5f09c64245905d703e2129fc2, type: 2}
+    - target: {fileID: 3061368375867741625, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116599308225898165, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: eb777a116842c274cb2c865eca509d77, type: 2}
+    - target: {fileID: 3116599308225898165, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185486829468126922, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: a796accfa3e46994e80f2d8377c1b2fe, type: 2}
+    - target: {fileID: 3185486829468126922, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3312124855122847762, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -871,16 +959,118 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6213468044295368564, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: b250a5acfa2572546954e5e0698a0bfa, type: 2}
+    - target: {fileID: 6213468044295368564, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662792248588948644, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: c8b544d3d407a41478dcc4ca4f5d7839, type: 2}
+    - target: {fileID: 7662792248588948644, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925016406690109601, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 81c417e370d04e0438e7a6e6a0273798, type: 2}
+    - target: {fileID: 8925016406690109601, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4813613779084595047, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6902603227448095828}
+    - targetCorrespondingSourceObject: {fileID: 5426338890845718465, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6902603227448095827}
   m_SourcePrefab: {fileID: 100100000, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
 --- !u!4 &6902603227448095824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3312124855122847762, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
   m_PrefabInstance: {fileID: 6902603227448095823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6902603227448095825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5426338890845718465, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+  m_PrefabInstance: {fileID: 6902603227448095823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6902603227448095826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4813613779084595047, guid: 25ff250e41dd2c04dbbfdf469c906ea4, type: 3}
+  m_PrefabInstance: {fileID: 6902603227448095823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6902603227448095827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902603227448095825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 616bef17d5b0d874992b847f5bd91f32, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!114 &6902603227448095828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902603227448095826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e422e24309d45234c95e544391dfc09e, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &8168230042669136895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -889,6 +1079,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1539073876}
     m_Modifications:
+    - target: {fileID: 299399036112025669, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: f47ad9faf217f8f429198fab720434e0, type: 2}
+    - target: {fileID: 299399036112025669, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4745627150498256038, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
       propertyPath: m_Name
       value: Room_02
@@ -932,6 +1130,30 @@ PrefabInstance:
     - target: {fileID: 6276731562324528966, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040586863585471089, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 9057e23631af9944e95e4b285b159d51, type: 2}
+    - target: {fileID: 8040586863585471089, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571195114848910609, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: a065ba6ea79db094c89d6de8f4d55bf3, type: 2}
+    - target: {fileID: 8571195114848910609, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9017508779106270137, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 6d1b597fdc4441747805121df14834e4, type: 2}
+    - target: {fileID: 9017508779106270137, guid: 0de64efe4d673a743ace721189c3c7cd, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
